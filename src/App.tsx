@@ -5,7 +5,7 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Dashboard from "./components/Dashboard";
 import Grid from "./components/Grid";
 
-function App() {
+const App = () => {
   return (
     <BrowserRouter>
       <Routes>
