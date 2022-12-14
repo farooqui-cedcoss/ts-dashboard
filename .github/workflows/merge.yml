@@ -9,8 +9,6 @@ on:
       - main
     types: [opened, synchronize, closed]
 
-
-  workflow_dispatch:
-  jobs:
-    build:
+jobs:
+  build:
     if: github.event_name == 'pull_request' && contains(github.head_ref, 'my-feature-branch')
