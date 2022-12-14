@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: File Name Validation
-      if: github.event.pull_request.base.ref != 'master'
+      if: ${{(!startsWith(github.head_ref, 'add/') && (!startsWith(github.head_ref, 'update/') && (!startsWith(github.head_ref, 'fix/') }}
       run: |
-        echo "Merging only allowed on master branch"
+        echo "File naming convention invalid"
         exit 1
