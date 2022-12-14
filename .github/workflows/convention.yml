@@ -1,7 +1,7 @@
 name: Branch Name
 on:
   pull_request:
-    types: [opened]
+    types: [opened, reopened, synchronize, edited]
 jobs:
   branch_name:
     runs-on: ubuntu-latest
@@ -10,7 +10,7 @@ jobs:
       - uses: AlbertHernandez/branch-name-action@v1.0.2
         with:
           branch_pattern: 'add|update|fix'
-          comment_for_invalid_branch_name: 'Ooops! This branch name is not following the standards! You can see them here: https://github.com/AlbertHernandez'
+          comment_for_invalid_branch_name: 'Ooops! This branch name is not following the standards!'
           fail_if_invalid_branch_name: 'true'
           ignore_branch_pattern: 'master|beta'
     env:

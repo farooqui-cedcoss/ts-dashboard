@@ -12,6 +12,7 @@ jobs:
     - name: Block merge
       if: github.event.pull_request.base.ref != 'master'
       run: |
+        echo "Merging only allowed on master branch"
         exit 1
 
 
