@@ -1,0 +1,13 @@
+name: "Validate file name"
+on: 
+  pull_request:
+  types: [opened, reopened, synchronize, edited]
+  
+jobs:
+  branch_validate:
+    runs-on: ubuntu-latest
+    steps: 
+      -if: ${{(!startWith(github.head_ref, 'add/') && !startWith(github.head_ref, 'update/') && !startWith(github.head_ref, 'fix/')}}
+      run: |
+        echo "File name must start with add/, update/ or fix/1"
+        exit 1
