@@ -7,7 +7,7 @@ jobs:
   branch_validate:
     runs-on: ubuntu-latest
     steps: 
-      -if: ${{(!startWith(github.head_ref, 'add/') && !startWith(github.head_ref, 'update/') && !startWith(github.head_ref, 'fix/')}}
+      -if: ${{(!startsWith(github.head_ref, 'add/') && !startsWith(github.head_ref, 'update/') && !startsWith(github.head_ref, 'fix/')}}
       run: |
         echo "File name must start with add/, update/ or fix/1"
         exit 1
