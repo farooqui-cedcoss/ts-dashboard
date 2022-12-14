@@ -1,16 +1,16 @@
-name: Merge branches
+name: Block merge
 
 on:
   pull_request:
-    types: [closed]
 
 jobs:
-  merge:
-    runs-on: Ubuntu-20.04
+  block-merge:
+    runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
-    - name: Merge branches
+    - uses: actions/checkout@v2
+    - name: Block merge
+      if: github.event.pull_request.base.ref != 'master'
       run: |
-        git merge --no-ff "${{ github.event.pull_request.head.ref }}" -m "Merge branch '${{ github.event.pull_request.head.ref }}' into master"
-        git push
+        exit 1
+
 
