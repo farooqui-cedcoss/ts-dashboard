@@ -1,14 +1,16 @@
-name: Check Base
+name: Merge branches
+
 on:
-  push:
-    branches:
-      - "**"
-      - "!main"
   pull_request:
-    branches:
-      - main
-    types: [opened, synchronize, closed]
+    types: [closed]
 
 jobs:
-  build:
-    if: github.event_name == 'pull_request' && contains(github.head_ref, 'my-feature-branch')
+  merge:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Merge branches
+      run: |
+        git merge --no-ff "${{ github.event.pull_request.head.ref }}" -m "Merge branch '${{ github.event.pull_request.head.ref }}' into master"
+        git push
+
