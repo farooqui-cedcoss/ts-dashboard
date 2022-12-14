@@ -1,7 +1,7 @@
 name: Branch Name
 on:
   pull_request:
-    types: [opened, reopened, synchronize, edited]
+    types: [opened, reopened, edited]
 jobs:
   branch_name:
     runs-on: ubuntu-latest
