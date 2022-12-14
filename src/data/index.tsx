@@ -78,7 +78,7 @@ export const obj: ObjectInterface = {
   },
 };
 
-export const pageCount = [
+export const pageCount:any = [
   { label: "10", value: "10" },
   { label: "20", value: "20" },
   { label: "30", value: "30" },

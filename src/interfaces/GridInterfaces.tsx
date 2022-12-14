@@ -84,6 +84,10 @@ export interface ObjectInterface {
 //   };
 // }
 
+    interface RA {
+      to: string
+    }
+
 export interface ResponseInterface {
   [key: string]: {
     [key: string]: string | number | object[];
