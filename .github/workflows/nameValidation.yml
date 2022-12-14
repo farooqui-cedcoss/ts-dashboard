@@ -1,13 +1,14 @@
-name: "Validate file name"
-on: 
+name: File Name Validation
+
+on:
   pull_request:
-  types: [opened, reopened, synchronize, edited]
-  
+
 jobs:
-  branch_validate:
+  block-merge:
     runs-on: ubuntu-latest
-    steps: 
-      -if: ${{(!startWith(github.head_ref, 'add/') && !startWith(github.head_ref, 'update/') && !startWith(github.head_ref, 'fix/')}}
+    steps:
+    - name: File Name Validation
+      if: github.event.pull_request.base.ref != 'master'
       run: |
-        echo "File name must start with add/, update/ or fix/1"
+        echo "Merging only allowed on master branch"
         exit 1
