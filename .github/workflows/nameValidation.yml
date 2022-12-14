@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: File Name Validation
-      if: ${{(!startsWith(github.head_ref, 'add/') && (!startsWith(github.head_ref, 'update/') && (!startsWith(github.head_ref, 'fix/') }}
+      if: ${{ !startsWith(github.head_ref, 'add/') && !startsWith(github.head_ref, 'update/') && !startsWith(github.head_ref, 'fix/') }}
       run: |
         echo "File naming convention invalid"
         exit 1
